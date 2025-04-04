@@ -1,0 +1,16 @@
+# Problem: Top K Frequent Elements - https://leetcode.com/problems/top-k-frequent-elements/
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function(nums, k) {
+    let map = {}
+    for(let i of nums){
+        if (!map[i]) map[i] = 0
+        map[i]++
+    }
+     return [...Object.keys(map)].sort((a,b) => map[b] - map[a]).slice(0,k);
+
+};
